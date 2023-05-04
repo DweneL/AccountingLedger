@@ -71,4 +71,5 @@ public class Transaction {
     public void setDebit(boolean debit) {
         isDebit = debit;
     }
+
 }
