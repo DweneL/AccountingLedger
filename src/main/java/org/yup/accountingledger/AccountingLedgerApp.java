@@ -1,8 +1,6 @@
 package org.yup.accountingledger;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -35,7 +33,40 @@ public class AccountingLedgerApp {
 
                             break;
                         case 3:
+                            int ledgerSelection = Ledger.ledger();
+                            switch (ledgerSelection){
+                                //case one uses file reader to display all entries for the sub menu
+                                case 1:
+                                    try {
+                                        FileReader transEntries = new FileReader("transaction.csv");
+                                        BufferedReader entriesHDD = new BufferedReader(transEntries);
+                                        entriesHDD.readLine();
+                                        FileWriter transEntriestxt = new FileWriter("transactionout.txt");
+                                        BufferedWriter addtransentries = new BufferedWriter(transEntriestxt);
 
+                                        String theTrans;
+                                        while ((theTrans = entriesHDD.readLine()) !=null){
+                                            String [] dataTrans = theTrans.split("\\|");
+                                            Transaction newTrans = new Transaction();
+
+                                        }
+
+                                    }catch (IOException e){
+                                        System.out.println("Error 404 NOT FOUND");
+                                        e.printStackTrace();
+                                    }
+
+
+
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+
+                                    break;
+                                case 4:
+                                    continue;
+                            }
                             break;
 
                         case 4:
@@ -56,7 +87,7 @@ public class AccountingLedgerApp {
     public static int homeMenu(){
         int selection;
         Scanner myScanner = new Scanner(System.in);
-        System.out.println("Hello! Welcome to Run Bank");
+        System.out.println("Hello! Welcome to RunAway Bank");
         System.out.println("--------------------\n");
         System.out.println("Choose and type a number");
         System.out.println("--------------------\n");
