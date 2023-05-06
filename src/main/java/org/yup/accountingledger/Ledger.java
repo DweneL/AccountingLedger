@@ -9,7 +9,8 @@ public class Ledger {
         int selection;
 
         Scanner myScanner = new Scanner(System.in);
-        System.out.println("--------------------\n");
+        System.out.println("Welcome to the Ledger\n");
+        System.out.println("---=-------=---------=-----=--\n");
         System.out.println("1. to Display all entries");
         System.out.println("2. to Display all deposited entries ");
         System.out.println("3. to Display all negative entries");

@@ -56,13 +56,14 @@ public class AccountingLedgerApp {
 
 
 
+
                                     }catch (IOException e){
                                         System.out.println("Error 404 NOT FOUND");
                                         e.printStackTrace();
                                     }
 
 
-
+                                    appRunning = false;
                                     break;
                                 case 2:
                                     break;
@@ -75,7 +76,7 @@ public class AccountingLedgerApp {
                             break;
 
                         case 4:
-                            System.out.println("Thank you Have a good day");
+                            System.out.println("You will now be exited from the app! Thank you Have a good day");
                             appRunning = false;
                             break;
                         default:
@@ -88,20 +89,21 @@ public class AccountingLedgerApp {
 
 
     }
-
+//Home Menu is basically the home of the application
     public static int homeMenu(){
         int selection;
         Scanner myScanner = new Scanner(System.in);
-        System.out.println("Hello! Welcome to RunAway Bank");
-        System.out.println("--------------------\n");
+        System.out.println("Hello! Welcome to RunAway Bank MobileApp");
+        System.out.println("------=--------=-----=------=-------=--------=-\n");
         System.out.println("Choose and type a number");
-        System.out.println("--------------------\n");
+        System.out.println("------=--------=------=------=-------=--------=-\n");
         System.out.println("1. to make a deposit");
         System.out.println("2. to make a payment ");
         System.out.println("3. to view ledger");
-        System.out.println("4. to exit the ledger");
+        System.out.println("4. to exit the ledger\n");
 
-        System.out.print("Your selected option is: \n");
+        System.out.print("Type in your selected option: \n");
+        System.out.println("------=-------=------=------=-------=--------=-\n");
         selection = myScanner.nextInt();
         return selection;
 
@@ -116,19 +118,19 @@ public class AccountingLedgerApp {
         String vendor;
         double amount;
         Scanner myScanner = new Scanner(System.in);
-        //Creating date for
+        //Creating date format, turned them into variables to then be able to use those variables
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         Date date = new Date();
         String transTime = timeFormat.format(date);
         String transDate = dateFormat.format(date);
-        System.out.println("Deposit Information: ");
+        System.out.println("Enter description Information: ");
         description = myScanner.nextLine();
 
-        System.out.println("Vendor: ");
+        System.out.println("Enter Vendor: ");
         vendor = myScanner.nextLine();
 
-        System.out.println("Amount: ");
+        System.out.println("Enter Amount: ");
         amount = myScanner.nextDouble();
 
 
@@ -139,7 +141,7 @@ public class AccountingLedgerApp {
                 //This writes into the transaction.csv file using the pipe format
                 TransFileWeWantToWrite.write(transDate + "|" + transTime + "|" + description + "|" + vendor + "|" + amount * -1 + "\n");
 
-
+//
             } else {
                 TransFileWeWantToWrite.write(transDate + "|" + transTime + "|" + description + "|" + vendor + "|" + amount + "\n");
 
